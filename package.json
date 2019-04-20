@@ -13,7 +13,11 @@
     "nodemon": "^1.18.11"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cryptr": "^4.0.2",
     "express": "^4.16.4",
-    "mongoose": "^5.5.2"
+    "mongoose": "^5.5.2",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1"
   }
 }
