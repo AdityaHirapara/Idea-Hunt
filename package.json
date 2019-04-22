@@ -1,7 +1,7 @@
 {
   "name": "idea-hunt",
   "version": "1.0.0",
-  "description": "Place where people share their ideas.",
+  "description": "Place where people can share their ideas.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",

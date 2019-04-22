@@ -11,11 +11,9 @@ router.post('/', function(req, res) {
   User.findOne({ username }, function(error, user) {
     if (error) {
       res.status(500).send(err);
-    }
-    if (!user) {
+    } else if (!user) {
       res.status(400).send({ error: "Invalid username!" });
-    }
-    if (user.password === password) {
+    } else if (user && user.password === password) {
       let token = cryptr.encrypt(username + new Date());
       User.updateOne({ username }, { token }, function(error, user) {
         if (error) {
