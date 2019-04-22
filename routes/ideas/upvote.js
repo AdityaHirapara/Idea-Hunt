@@ -44,7 +44,6 @@ router.get('/:id', passport.authenticate('bearer', { session: false }), function
     } else {
       res.status(400).send({ error: "Bad request" });
     }
-    console.log(idea);
   });
 });
 

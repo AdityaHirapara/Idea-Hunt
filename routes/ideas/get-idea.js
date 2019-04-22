@@ -78,13 +78,11 @@ router.get('/:id', passport.authenticate('bearer', { session: false }), function
           }
           return comment;
         }).reverse();
-        console.log(ridea)
         res.send({ idea: ridea });
       })
     } else {
       res.status(400).send({ error: "Bad request" });
     }
-    console.log(idea);
   });
 });
 

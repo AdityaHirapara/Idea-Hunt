@@ -24,7 +24,6 @@ router.post('/', function(req, res) {
         if (user) {
           res.send({ token });
         }
-        console.log(user);
       });
     }
   });

@@ -17,7 +17,6 @@ router.post('/', passport.authenticate('bearer', { session: false }), function(r
     if (idea) {
       res.send({ idea });
     }
-    console.log(idea);
   });
 });
 

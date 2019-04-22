@@ -1,4 +1,5 @@
 const express = require('express');
+const moment = require('moment');
 const router = express.Router();
 
 const passport = require('../../strategies/passport-user');
@@ -35,14 +36,32 @@ router.post('/:id', passport.authenticate('bearer', { session: false }), functio
             if (err) {
               res.status(500).send(err);
             }
-            res.send({ idea: resIdea });
+            let ridea = {
+              _id: resIdea._id,
+              title: resIdea.title,
+              body: resIdea.body,
+              date: resIdea.date,
+              upvotes: resIdea.upvotes,
+              author: resIdea.author,
+              comments: resIdea.comments
+            }
+            ridea.comments = resIdea.comments.map(c => {
+              date = c.date.toUTCString();
+              let comment = {
+                _id: c._id,
+                author: c.author,
+                date: moment(date).format("D MMM, YYYY"),
+                body: c.body
+              }
+              return comment;
+            }).reverse();
+            res.send({ idea: ridea });
           })
         }
       })
     } else {
       res.status(400).send({ error: "Bad request" });
     }
-    console.log(idea);
   });
 });
 
